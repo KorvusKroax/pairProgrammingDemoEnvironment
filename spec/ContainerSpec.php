@@ -142,27 +142,26 @@ class ContainerSpec extends ObjectBehavior
         $this->get('someService')->shouldBeLike(new SajatConnection('randomHost'));
     }
 
-    // function it_can_return_all_services_with_a_certain_tag() : void
-    // {
-
-    //     $this->beConstructedWith([
-    //         'services' => [
-    //             'someService' => [
-    //                 'class' => 'SajatConnection',
-    //                 'tags' => ['fontos']
-    //             ],
-    //             'someService2' => [
-    //                 'class' => 'SajatConnection',
-    //                 'arguments' => ['valamiArgumentum']
-    //             ],
-    //             'proba' => [
-    //                 'class' => 'Proba',
-    //                 'tags' => ['fontos']
-    //             ],
-    //         ]
-    //     ]);
-    //     $this->getServicesTagged('fontos')->shouldBeLike([
-    //         new SajatConnection(), new Proba()
-    //     ]);
-    // }
+    function it_can_return_all_services_with_a_certain_tag() : void
+    {
+        $this->beConstructedWith([
+            'services' => [
+                'someService' => [
+                    'class' => 'SajatConnection',
+                    'tags' => ['fontos']
+                ],
+                'someService2' => [
+                    'class' => 'SajatConnection',
+                    'arguments' => ['valamiArgumentum']
+                ],
+                'proba' => [
+                    'class' => 'Proba',
+                    'tags' => ['fontos']
+                ],
+            ]
+        ]);
+        $this->getServicesTagged('fontos')->shouldBeLike([
+            new SajatConnection(), new Proba()
+        ]);
+    }
 }
